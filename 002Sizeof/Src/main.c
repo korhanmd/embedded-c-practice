@@ -24,6 +24,7 @@
 
 int main(void)
 {
+	printf("Size of char data type is %u\n", sizeof(char));
     /* Loop forever */
 	for(;;);
 }
