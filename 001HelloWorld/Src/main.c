@@ -24,6 +24,7 @@
 
 int main(void)
 {
+	printf("Hello World\n");
     /* Loop forever */
 	for(;;);
 }
