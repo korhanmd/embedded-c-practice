@@ -40,6 +40,9 @@ int main(void)
 	// Set 12th bit of the output data register to make I/O pin-12 as HIGH
 	*pPortDOutReg |= (1 << 12);
 
+	// Introduce small human observable delay
+	for(uint32_t i = 0; i < 10000; i++);
+
     /* Loop forever */
 	for(;;);
 }
