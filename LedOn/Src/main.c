@@ -37,6 +37,9 @@ int main(void)
 	// Make 24th bit position as 1 (SET)
 	*pPortDModeReg |= 0x01000000;
 
+	// Set 12th bit of the output data register to make I/O pin-12 as HIGH
+	*pPortDOutReg |= 0x1000;
+
     /* Loop forever */
 	for(;;);
 }
