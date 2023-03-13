@@ -44,9 +44,17 @@ int main(void)
 	// Configure the mode of PA0 as input
 	*pPortAModeReg &= ~(3 << 0);
 
-	// Read the status of the pin PA0
-	uint8_t pinStatus = (uint8_t)(*pPortAInReg & 0x1);
-
     /* Loop forever */
-	for(;;);
+	for(;;) {
+		// Read the status of the pin PA0
+		uint8_t pinStatus = (uint8_t)(*pPortAInReg & 0x1);
+
+		if (pinStatus) {
+			// Turn on the LED
+			*pPortDOutReg |= (1 << 12);
+		} else {
+			// Turn off the LED
+			*pPortDOutReg &= ~(1 << 12);
+		}
+	}
 }
