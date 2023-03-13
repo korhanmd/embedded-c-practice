@@ -24,6 +24,29 @@
 
 int main(void)
 {
+	uint32_t *pClkCtrlReg = (uint32_t*)0x40023830;
+	uint32_t *pPortDModeReg = (uint32_t*)0x40020C00;
+	uint32_t *pPortDOutReg = (uint32_t*)0x40020C14;
+
+	uint32_t *pPortAModeReg = (uint32_t*)0x40020000;
+	uint32_t *pPortAInReg = (uint32_t*)0x40020010;
+
+	// Enable the clock for GPIOD and GPIOA peripherals in the AHB1ENR
+	*pClkCtrlReg |= (1 << 3);
+	*pClkCtrlReg |= (1 << 0);
+
+	// Configure the mode of PD12 as output
+	// Clear the 24th and 25th bit positions
+	*pPortDModeReg &= ~(3 << 24);
+	// Make 24th bit position as 1 (SET)
+	*pPortDModeReg |= (1 << 24);
+
+	// Configure the mode of PA0 as input
+	*pPortAModeReg &= ~(3 << 0);
+
+	// Read the status of the pin PA0
+	uint8_t pinStatus = (uint8_t)(*pPortAInReg & 0x1);
+
     /* Loop forever */
 	for(;;);
 }
