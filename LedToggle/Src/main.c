@@ -43,6 +43,10 @@ int main(void)
 	// Introduce small human observable delay
 	for(uint32_t i = 0; i < 10000; i++);
 
+	// Turn off the LED
+	*pPortDOutReg &= ~(1 << 12);
+	for(uint32_t i = 0; i < 10000; i++);
+
     /* Loop forever */
 	for(;;);
 }
