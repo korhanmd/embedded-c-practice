@@ -31,6 +31,12 @@ int main(void)
 	// Enable the clock for the GPIOD peripheral in the AHB1ENR
 	*pClkCtrlReg |= 0x08;
 
+	// Configure the mode of the IO pin as output
+	// Clear the 24th and 25th bit positions
+	*pPortDModeReg &= 0xFCFFFFFF;
+	// Make 24th bit position as 1 (SET)
+	*pPortDModeReg |= 0x01000000;
+
     /* Loop forever */
 	for(;;);
 }
