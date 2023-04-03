@@ -32,6 +32,9 @@ int main(void)
 	// Enable the clock for the GPIOD peripheral in the AHB1ENR (SET the 3rd bit position)
 	pClkCtrlReg->gpiod_en = 1;
 
+	// Configure the mode of the IO pin as output
+	pPortDModeReg->pin_12 = 1;
+
 	/* Loop forever */
 	for(;;);
 }
