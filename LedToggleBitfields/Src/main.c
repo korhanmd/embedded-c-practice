@@ -36,5 +36,15 @@ int main(void)
 	pPortDModeReg->pin_12 = 1;
 
 	/* Loop forever */
-	for(;;);
+	for(;;) {
+		// Set 12th bit of the output data register to make I/O pin-12 as HIGH
+		pPortDOutReg->pin_12 = 1;
+
+		// Introduce small human observable delay
+		for(uint32_t i = 0; i < 10000; i++);
+
+		// Turn off the LED
+		pPortDOutReg->pin_12 = 0;
+		for(uint32_t i = 0; i < 10000; i++);
+	}
 }
