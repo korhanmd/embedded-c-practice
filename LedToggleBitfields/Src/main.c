@@ -25,6 +25,10 @@
 
 int main(void)
 {
-    /* Loop forever */
+	RCC_AHB1ENR_t 	volatile *const pClkCtrlReg		= (RCC_AHB1ENR_t*)0x40023830;
+	GPIOx_MODE_t 	volatile *const pPortDModeReg	= (GPIOx_MODE_t*)0x40020C00;
+	GPIOx_ODR_t 	volatile *const pPortDOutReg	= (GPIOx_ODR_t*)0x40020C14;
+
+	/* Loop forever */
 	for(;;);
 }
