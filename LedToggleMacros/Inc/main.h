@@ -17,6 +17,8 @@
 
 #define CLOCK_ENABLE 		1
 #define MODE_CONF_OUTPUT	1
+#define PIN_STATE_HIGH		1
+#define PIN_STATE_LOW		0
 
 typedef struct {
 	uint32_t gpioa_en		:1;
