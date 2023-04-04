@@ -10,6 +10,11 @@
 
 #include <stdint.h>
 
+// Macros
+#define ADDR_REG_AHB1ENR		((RCC_AHB1ENR_t*)0x40023830)
+#define ADDR_REG_GPIOD_MODE		((GPIOx_MODE_t*)0x40020C00)
+#define ADDR_REG_GPIOD_OD		((GPIOx_ODR_t*)0x40020C14)
+
 typedef struct {
 	uint32_t gpioa_en		:1;
 	uint32_t gpiob_en		:1;

@@ -25,9 +25,9 @@
 
 int main(void)
 {
-	RCC_AHB1ENR_t 	volatile *const pClkCtrlReg		= (RCC_AHB1ENR_t*)0x40023830;
-	GPIOx_MODE_t 	volatile *const pPortDModeReg	= (GPIOx_MODE_t*)0x40020C00;
-	GPIOx_ODR_t 	volatile *const pPortDOutReg	= (GPIOx_ODR_t*)0x40020C14;
+	RCC_AHB1ENR_t 	volatile *const pClkCtrlReg		= ADDR_REG_AHB1ENR;
+	GPIOx_MODE_t 	volatile *const pPortDModeReg	= ADDR_REG_GPIOD_MODE;
+	GPIOx_ODR_t 	volatile *const pPortDOutReg	= ADDR_REG_GPIOD_OD;
 
 	// Enable the clock for the GPIOD peripheral in the AHB1ENR (SET the 3rd bit position)
 	pClkCtrlReg->gpiod_en = 1;
