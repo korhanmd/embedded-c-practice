@@ -33,7 +33,7 @@ int main(void)
 	pClkCtrlReg->gpiod_en = CLOCK_ENABLE;
 
 	// Configure the mode of the IO pin as output
-	pPortDModeReg->pin_12 = 1;
+	pPortDModeReg->pin_12 = MODE_CONF_OUTPUT;
 
 	/* Loop forever */
 	for(;;) {
