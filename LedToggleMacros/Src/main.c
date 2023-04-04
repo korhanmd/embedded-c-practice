@@ -17,6 +17,7 @@
  */
 
 #include <stdint.h>
+#include "main.h"
 
 #if !defined(__SOFT_FP__) && defined(__ARM_FP)
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
@@ -24,6 +25,26 @@
 
 int main(void)
 {
-    /* Loop forever */
-	for(;;);
+	RCC_AHB1ENR_t 	volatile *const pClkCtrlReg		= (RCC_AHB1ENR_t*)0x40023830;
+	GPIOx_MODE_t 	volatile *const pPortDModeReg	= (GPIOx_MODE_t*)0x40020C00;
+	GPIOx_ODR_t 	volatile *const pPortDOutReg	= (GPIOx_ODR_t*)0x40020C14;
+
+	// Enable the clock for the GPIOD peripheral in the AHB1ENR (SET the 3rd bit position)
+	pClkCtrlReg->gpiod_en = 1;
+
+	// Configure the mode of the IO pin as output
+	pPortDModeReg->pin_12 = 1;
+
+	/* Loop forever */
+	for(;;) {
+		// Set 12th bit of the output data register to make I/O pin-12 as HIGH
+		pPortDOutReg->pin_12 = 1;
+
+		// Introduce small human observable delay
+		for(uint32_t i = 0; i < 300000; i++);
+
+		// Turn off the LED
+		pPortDOutReg->pin_12 = 0;
+		for(uint32_t i = 0; i < 300000; i++);
+	}
 }
