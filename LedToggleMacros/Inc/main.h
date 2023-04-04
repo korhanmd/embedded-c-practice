@@ -20,6 +20,8 @@
 #define PIN_STATE_HIGH		1
 #define PIN_STATE_LOW		0
 
+#define DELAY_COUNT	300000UL
+
 typedef struct {
 	uint32_t gpioa_en		:1;
 	uint32_t gpiob_en		:1;

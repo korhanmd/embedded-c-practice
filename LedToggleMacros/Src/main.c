@@ -41,10 +41,10 @@ int main(void)
 		pPortDOutReg->pin_12 = PIN_STATE_HIGH;
 
 		// Introduce small human observable delay
-		for(uint32_t i = 0; i < 300000; i++);
+		for(uint32_t i = 0; i < DELAY_COUNT; i++);
 
 		// Turn off the LED
 		pPortDOutReg->pin_12 = PIN_STATE_LOW;
-		for(uint32_t i = 0; i < 300000; i++);
+		for(uint32_t i = 0; i < DELAY_COUNT; i++);
 	}
 }
