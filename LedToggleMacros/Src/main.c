@@ -30,7 +30,7 @@ int main(void)
 	GPIOx_ODR_t 	volatile *const pPortDOutReg	= ADDR_REG_GPIOD_OD;
 
 	// Enable the clock for the GPIOD peripheral in the AHB1ENR (SET the 3rd bit position)
-	pClkCtrlReg->gpiod_en = 1;
+	pClkCtrlReg->gpiod_en = CLOCK_ENABLE;
 
 	// Configure the mode of the IO pin as output
 	pPortDModeReg->pin_12 = 1;
