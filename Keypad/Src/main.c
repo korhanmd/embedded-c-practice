@@ -31,6 +31,9 @@ int main(void)
 	uint32_t volatile *const pClockCtrlReg	= (uint32_t*)(0x40023800 + 0x30);
 	uint32_t volatile *const pPullupDownReg	= (uint32_t*)(0x40020C00 + 0x0C);
 
+	// Enable the peripheral clock of GPIOD peripheral
+	*pClockCtrlReg |= (1 << 3);
+
     /* Loop forever */
 	for(;;);
 }
