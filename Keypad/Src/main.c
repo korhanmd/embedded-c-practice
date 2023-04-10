@@ -34,6 +34,10 @@ int main(void)
 	// Enable the peripheral clock of GPIOD peripheral
 	*pClockCtrlReg |= (1 << 3);
 
+	// Configure the rows as output
+	*pGPIODModeReg &= ~(0xFF);	// clear
+	*pGPIODModeReg |= 0x55;		// set
+
     /* Loop forever */
 	for(;;);
 }
