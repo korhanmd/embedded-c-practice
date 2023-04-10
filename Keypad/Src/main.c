@@ -38,6 +38,9 @@ int main(void)
 	*pGPIODModeReg &= ~(0xFF);	// clear
 	*pGPIODModeReg |= 0x55;		// set
 
+	// Configure the columns as input
+	*pGPIODModeReg &= ~(0xFF << 16);
+
     /* Loop forever */
 	for(;;);
 }
