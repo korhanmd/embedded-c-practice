@@ -41,6 +41,10 @@ int main(void)
 	// Configure the columns as input
 	*pGPIODModeReg &= ~(0xFF << 16);
 
+	// Enable internal pull up resistors for the columns
+	*pPullupDownReg &= ~(0xFF << 16);	// clear
+	*pPullupDownReg |= (0x55 << 16);	// set
+
     /* Loop forever */
 	for(;;);
 }
