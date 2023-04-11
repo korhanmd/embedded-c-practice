@@ -24,7 +24,7 @@
 #endif
 
 void delay(void){
-
+	for(uint32_t i = 0; i < 300000; i++);
 }
 
 int main(void)
