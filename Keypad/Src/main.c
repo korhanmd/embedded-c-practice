@@ -55,7 +55,7 @@ int main(void)
 
 		// Scan the columns
 		// Check C1 (PD8) low or high
-		if((*pInPutDataReg & (1 << 8))) {
+		if(!(*pInPutDataReg & (1 << 8))) {
 			printf("1\n");
 		}
 	}
