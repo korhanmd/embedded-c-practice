@@ -22,6 +22,10 @@
   #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
 #endif
 
+void delay(void){
+
+}
+
 int main(void)
 {
 	// Peripheral register addresses
@@ -56,21 +60,25 @@ int main(void)
 		// Scan the columns
 		// Check C1 (PD8) low or high
 		if(!(*pInPutDataReg & (1 << 8))) {
+			delay();
 			printf("1\n");
 		}
 
 		// Check C2 (PD9) low or high
 		if(!(*pInPutDataReg & (1 << 9))) {
+			delay();
 			printf("2\n");
 		}
 
 		// Check C3 (PD10) low or high
 		if(!(*pInPutDataReg & (1 << 10))) {
+			delay();
 			printf("3\n");
 		}
 
 		// Check C4 (PD11) low or high
 		if(!(*pInPutDataReg & (1 << 11))) {
+			delay();
 			printf("A\n");
 		}
 	}
