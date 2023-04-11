@@ -49,5 +49,8 @@ int main(void)
 	for(;;){
 		// Make all rows high
 		*pOutPutDataReg |= 0x0F;
+
+		// Make R1 low
+		*pOutPutDataReg &= ~(1 << 0);
 	}
 }
