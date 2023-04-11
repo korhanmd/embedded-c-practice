@@ -45,6 +45,9 @@ int main(void)
 	*pPullupDownReg &= ~(0xFF << 16);	// clear
 	*pPullupDownReg |= (0x55 << 16);	// set
 
+	// Make all rows high
+	*pOutPutDataReg |= 0x0F;
+
     /* Loop forever */
 	for(;;);
 }
