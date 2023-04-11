@@ -58,5 +58,20 @@ int main(void)
 		if(!(*pInPutDataReg & (1 << 8))) {
 			printf("1\n");
 		}
+
+		// Check C2 (PD9) low or high
+		if(!(*pInPutDataReg & (1 << 9))) {
+			printf("2\n");
+		}
+
+		// Check C3 (PD10) low or high
+		if(!(*pInPutDataReg & (1 << 10))) {
+			printf("3\n");
+		}
+
+		// Check C4 (PD11) low or high
+		if(!(*pInPutDataReg & (1 << 11))) {
+			printf("A\n");
+		}
 	}
 }
