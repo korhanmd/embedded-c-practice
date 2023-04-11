@@ -81,5 +81,10 @@ int main(void)
 			delay();
 			printf("A\n");
 		}
+
+		// Make R2 low
+		*pOutPutDataReg |= 0x0F;
+		*pOutPutDataReg &= ~(1 << 1);
+
 	}
 }
