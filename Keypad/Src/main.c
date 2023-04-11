@@ -86,5 +86,29 @@ int main(void)
 		*pOutPutDataReg |= 0x0F;
 		*pOutPutDataReg &= ~(1 << 1);
 
+		// Scan the columns
+		// Check C1 (PD8) low or high
+		if(!(*pInPutDataReg & (1 << 8))) {
+			delay();
+			printf("4\n");
+		}
+
+		// Check C2 (PD9) low or high
+		if(!(*pInPutDataReg & (1 << 9))) {
+			delay();
+			printf("5\n");
+		}
+
+		// Check C3 (PD10) low or high
+		if(!(*pInPutDataReg & (1 << 10))) {
+			delay();
+			printf("6\n");
+		}
+
+		// Check C4 (PD11) low or high
+		if(!(*pInPutDataReg & (1 << 11))) {
+			delay();
+			printf("B\n");
+		}
 	}
 }
