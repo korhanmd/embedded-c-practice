@@ -110,5 +110,63 @@ int main(void)
 			delay();
 			printf("B\n");
 		}
+
+		// Make R3 low
+		*pOutPutDataReg |= 0x0F;
+		*pOutPutDataReg &= ~(1 << 2);
+
+		// Scan the columns
+		// Check C1 (PD8) low or high
+		if(!(*pInPutDataReg & (1 << 8))) {
+			delay();
+			printf("7\n");
+		}
+
+		// Check C2 (PD9) low or high
+		if(!(*pInPutDataReg & (1 << 9))) {
+			delay();
+			printf("8\n");
+		}
+
+		// Check C3 (PD10) low or high
+		if(!(*pInPutDataReg & (1 << 10))) {
+			delay();
+			printf("9\n");
+		}
+
+		// Check C4 (PD11) low or high
+		if(!(*pInPutDataReg & (1 << 11))) {
+			delay();
+			printf("C\n");
+		}
+
+		// Make R4 low
+		*pOutPutDataReg |= 0x0F;
+		*pOutPutDataReg &= ~(1 << 3);
+
+		// Scan the columns
+		// Check C1 (PD8) low or high
+		if(!(*pInPutDataReg & (1 << 8))) {
+			delay();
+			printf("*\n");
+		}
+
+		// Check C2 (PD9) low or high
+		if(!(*pInPutDataReg & (1 << 9))) {
+			delay();
+			printf("0\n");
+		}
+
+		// Check C3 (PD10) low or high
+		if(!(*pInPutDataReg & (1 << 10))) {
+			delay();
+			printf("#\n");
+		}
+
+		// Check C4 (PD11) low or high
+		if(!(*pInPutDataReg & (1 << 11))) {
+			delay();
+			printf("D\n");
+		}
 	}
 }
