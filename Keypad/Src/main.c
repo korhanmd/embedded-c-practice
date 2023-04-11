@@ -52,5 +52,11 @@ int main(void)
 
 		// Make R1 low
 		*pOutPutDataReg &= ~(1 << 0);
+
+		// Scan the columns
+		// Check C1 (PD8) low or high
+		if((*pInPutDataReg & (1 << 8))) {
+			printf("1\n");
+		}
 	}
 }
